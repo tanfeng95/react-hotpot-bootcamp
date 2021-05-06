@@ -1,3 +1,1 @@
-# Rocket Academy Coding Bootcamp
-
-## React Hotpot
+# Rocket Academy Coding Bootcamp: React Hotpot
