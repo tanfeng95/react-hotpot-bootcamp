@@ -1,6 +1,6 @@
 module.exports = {
   development: {
-    username: 'michellemok',
+    username: '<YOUR_USERNAME>',
     password: null,
     database: 'hotpot_development',
     host: '127.0.0.1',
