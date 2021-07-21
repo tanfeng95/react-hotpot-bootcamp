@@ -1,4 +1,5 @@
 export default function initPeopleController(db) {
+  // create person, add person to bill by including bill_id
   const addPerson = async (req, res) => {
     console.log(req.body);
     try {
@@ -19,6 +20,7 @@ export default function initPeopleController(db) {
     console.log(req.body);
 
     try {
+      // add amount to each person in the list of people
       await req.body.peopleList.forEach((person) => {
         db.Person.update({
           amount: Math.round(person.amount),

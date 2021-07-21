@@ -1,4 +1,5 @@
 export default function initBillsController(db) {
+  // create bill
   const create = async (req, res) => {
     try {
       console.log(req.body);

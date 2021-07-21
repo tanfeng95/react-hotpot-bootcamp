@@ -8,11 +8,16 @@ const Form = ({
   const [price, setPrice] = useState('');
   const [personName, setPersonName] = useState('');
 
+  // when item input submit button is clicked, inputs are stored in state
   const handleItemSubmit = () => {
     if (item && price) {
+      // the item inputs set as key value pairs in itemObj
       const itemObj = { item, price };
+      // the current item is added to itemList, note use of spread operator here
       const items = [...itemList, itemObj];
+      // item is saved in state here
       setItemList(items);
+      // price and name of item are reset
       setItem('');
       setPrice('');
     } else {
@@ -20,8 +25,10 @@ const Form = ({
     }
   };
 
+  // when submit button on the person input is clicked, the input is stored in the database, and also in state
   const handlePersonSubmit = () => {
     if (personName) {
+      // backend post request with name of person, cost initially set to 0
       axios
         .post('/person', {
           name: personName,
@@ -29,6 +36,7 @@ const Form = ({
         })
         .then((response) => {
           const { newPerson } = response.data;
+          // person is added to list of people stored in state
           setPeopleList([...peopleList, newPerson]);
         })
         .catch((error) => {
@@ -37,7 +45,7 @@ const Form = ({
     } else {
       console.log('person not submitted');
     }
-
+    // reset personName
     setPersonName('');
   };
 
@@ -46,6 +54,7 @@ const Form = ({
     <>
       <div className="item-input">
         <h3>item input</h3>
+        {/* item inputs allows item name and price to be added */}
         <div className="item-name">
           <label htmlFor="item">Item: </label>
           <input type="text" id="item" value={item} onChange={(event) => setItem(event.target.value)} />
@@ -60,6 +69,7 @@ const Form = ({
       <div className="person-input">
         <h3>person input</h3>
         <div className="person-name">
+          {/* name input allows person name to be added */}
           <label htmlFor="person">Name: </label>
           <input type="text" id="person" value={personName} onChange={(event) => setPersonName(event.target.value)} />
         </div>

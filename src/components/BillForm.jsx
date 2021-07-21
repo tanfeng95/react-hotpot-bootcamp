@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+// the form which allows users to create a bill
 const BillForm = ({ billName, setBillName, setNewBill }) => {
   const handleSubmit = (event) => {
     event.preventDefault();

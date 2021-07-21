@@ -8,10 +8,12 @@ const ItemPeople = ({ item, peopleList }) => {
     setPersonSelected(event.target.value);
   };
 
+  // add person to list of people who selected a particular item when submit button is clicked
   const addPerson = () => {
     setPayList([...paylist, personSelected]);
   };
 
+  // cost of item is divided by the  number of people who selected the item (paylist), and added to amount in person object (stored in state)
   const handleSubmit = () => {
     peopleList.forEach((person) => {
       if (paylist.includes(person.name)) {
@@ -40,7 +42,7 @@ const ItemPeople = ({ item, peopleList }) => {
         </select>
       </div>
       <div className="item-button-container">
-        <button type="submit" className="item-submit-button" onClick={addPerson}>Add Person</button>
+        <button type="submit" className="item-submit-button" onClick={() => addPerson}>Add Person</button>
       </div>
       <div className="item-result">
         <ul>

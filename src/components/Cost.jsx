@@ -9,6 +9,7 @@ const Cost = ({ peopleList, itemList }) => {
     totalCost += Number(item.price);
   });
 
+  // array of person objects containing person name and person amount is sent to the database
   const CalculateTotalPerPerson = () => {
     console.log(peopleList);
     axios
@@ -49,6 +50,8 @@ const Cost = ({ peopleList, itemList }) => {
           <div>
             <button type="submit" onClick={() => setShowAmounts(true)}>calculate cost per person and save bill</button>
           </div>
+          {/* only when showAmounts is true (i.e., when the button is clicked,
+            that the amount per person is sent to the database) */}
           {showAmounts && (
           <CalculateTotalPerPerson />
           )}
