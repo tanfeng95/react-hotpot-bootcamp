@@ -13,10 +13,12 @@ export default function App() {
 
   return (
     <>
+      {/* bill form is only seen if the bill (newBill) is not yet created */}
       {!newBill ? (
         <BillForm setNewBill={setNewBill} billName={billName} setBillName={setBillName} />
       ) : (
         <>
+          {/* otherwise another form containing inputs for items and people is shown */}
           <div className="inputs-container">
             <Form itemList={itemList} setItemList={setItemList} peopleList={peopleList} setPeopleList={setPeopleList} />
           </div>
