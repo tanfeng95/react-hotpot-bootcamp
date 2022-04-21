@@ -11,7 +11,7 @@ export default function routes(app) {
   app.post('/person', PeopleController.addPerson);
   app.post('/mealCost', PeopleController.mealCost);
 
-  // special JS page. Include the webpack index.html file
+  // Root route renders Webpack-generated main.html file
   app.get('/', (request, response) => {
     response.sendFile(resolve('dist', 'main.html'));
   });
