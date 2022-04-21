@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import Form from './components/inputs.jsx';
 import ItemPeopleList from './components/ItemPeopleList.jsx';
 import Cost from './components/Cost.jsx';
@@ -20,12 +19,21 @@ export default function App() {
         <>
           {/* otherwise another form containing inputs for items and people is shown */}
           <div className="inputs-container">
-            <Form itemList={itemList} setItemList={setItemList} peopleList={peopleList} setPeopleList={setPeopleList} />
+            <Form
+              itemList={itemList}
+              setItemList={setItemList}
+              peopleList={peopleList}
+              setPeopleList={setPeopleList}
+            />
           </div>
           {itemList.length > 0 && (
             <>
               <div className="item-list-container">
-                <ItemPeopleList itemList={itemList} peopleList={peopleList} />
+                <ItemPeopleList
+                  itemList={itemList}
+                  peopleList={peopleList}
+                  setPeopleList={setPeopleList}
+                />
               </div>
               <div>
                 <Cost peopleList={peopleList} itemList={itemList} />

@@ -1,25 +1,42 @@
 import React, { useState } from 'react';
 
-const ItemPeople = ({ item, peopleList }) => {
+const ItemPeople = ({ item, peopleList, setPeopleList }) => {
   const [personSelected, setPersonSelected] = useState();
-  const [paylist, setPayList] = useState([]);
+  const [payList, setPayList] = useState([]);
 
   const handlePersonChange = (event) => {
     setPersonSelected(event.target.value);
   };
 
-  // add person to list of people who selected a particular item when submit button is clicked
+  // Add person to list of people who selected a particular item when user clicks Add Person
   const addPerson = () => {
-    setPayList([...paylist, personSelected]);
-  };
+    // Add new person to pay list
+    const updatedPayList = [...payList, personSelected];
+    // Calculate new per person cost for this item based on updated pay list
+    const prevPerPersonCost = updatedPayList.length === 1
+      ? 0 : Number(item.price) / (updatedPayList.length - 1);
+    const updatedPerPersonCost = Number(item.price) / updatedPayList.length;
 
-  // cost of item is divided by the  number of people who selected the item (paylist), and added to amount in person object (stored in state)
-  const handleSubmit = () => {
-    peopleList.forEach((person) => {
-      if (paylist.includes(person.name)) {
-        person.amount += (Number(item.price) / paylist.length);
+    // Create new people list to trigger re-render when we update people list in parent component
+    const updatedPeopleList = [...peopleList];
+
+    // Update each person's amount based on updated per person cost
+    updatedPeopleList.forEach((person) => {
+      if (updatedPayList.includes(person.name)) {
+        // If person was already on pay list, subtract previous per person cost
+        if (payList.includes(person.name)) {
+          person.amount -= prevPerPersonCost;
+        }
+        // Add the updated per person cost to the person's total amount due
+        person.amount += updatedPerPersonCost;
       }
     });
+
+    // Update people list state in parent component to update people list in sibling components
+    setPeopleList(updatedPeopleList);
+
+    // Update local pay list state to reflect the new person added
+    setPayList(updatedPayList);
   };
 
   return (
@@ -42,25 +59,22 @@ const ItemPeople = ({ item, peopleList }) => {
         </select>
       </div>
       <div className="item-button-container">
-        <button type="submit" className="item-submit-button" onClick={() => addPerson}>Add Person</button>
+        <button type="submit" className="item-submit-button" onClick={addPerson}>Add Person</button>
       </div>
       <div className="item-result">
         <ul>
-          {paylist.map((person) => (
+          {payList.map((person) => (
             <li>{person}</li>
           ))}
         </ul>
       </div>
       <div className="cost-per-person">
-        {paylist.length > 0 && (
+        {payList.length > 0 && (
         <>
           <h3>Cost per person: </h3>
-          <h3>{item.price / paylist.length}</h3>
+          <h3>{item.price / payList.length}</h3>
         </>
         )}
-      </div>
-      <div className="item-submit">
-        <button type="submit" onClick={handleSubmit}>Submit</button>
       </div>
     </div>
   );

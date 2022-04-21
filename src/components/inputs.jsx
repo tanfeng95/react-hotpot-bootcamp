@@ -25,7 +25,7 @@ const Form = ({
     }
   };
 
-  // when submit button on the person input is clicked, the input is stored in the database, and also in state
+  // When user clicks Submit on person it, store input in DB and state
   const handlePersonSubmit = () => {
     if (personName) {
       // backend post request with name of person, cost initially set to 0
