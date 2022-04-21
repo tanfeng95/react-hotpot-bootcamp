@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 
 export default function routes(app) {
-  // special JS page. Include the webpack index.html file
+  // Root route renders Webpack-generated main.html file
   app.get('/', (request, response) => {
     response.sendFile(resolve('dist', 'main.html'));
   });
