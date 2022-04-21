@@ -1,5 +1,5 @@
 {
-  "name": "react-hotpot-swe1",
+  "name": "react-hotpot-bootcamp",
   "version": "1.0.0",
   "description": "",
   "main": "index.mjs",
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rocketacademy/react-hotpot-swe1.git"
+    "url": "git+https://github.com/rocketacademy/react-hotpot-bootcamp.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rocketacademy/react-hotpot-swe1/issues"
+    "url": "https://github.com/rocketacademy/react-hotpot-bootcamp/issues"
   },
-  "homepage": "https://github.com/rocketacademy/react-hotpot-swe1#readme",
+  "homepage": "https://github.com/rocketacademy/react-hotpot-bootcamp#readme",
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
