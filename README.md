@@ -7,3 +7,4 @@ To run this app, we will need the following.
 3. Update `config/config.js` to replace `<YOUR_USERNAME>` with your local DB username
 4. Run migrations with `npx sequelize db:migrate`
 5. Start app locally with `nodemon index.mjs`
+6. Visit app in browser at `localhost:3004`
