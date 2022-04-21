@@ -1,4 +1,4 @@
-# Rocket Academy SWE Bootcamp: React Hotpot
+# Rocket Academy Coding Bootcamp: React Hotpot
 
 To run this app, we will need the following.
 
