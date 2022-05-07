@@ -5,7 +5,7 @@ export default function Inputs({
   itemList, setItemList, peopleList, setPeopleList,
 }) {
   const [item, setItem] = useState('');
-  const [price, setPrice] = useState('');
+  const [price, setPrice] = useState(0);
   const [person, setPerson] = useState('');
 
   const handleItemSubmit = (event) => {
@@ -32,6 +32,7 @@ export default function Inputs({
             const { data } = result;
             console.log(data);
             const { person } = result.data;
+            person.amount = 0;
             setPeopleList([...peopleList, person]);
           });
 

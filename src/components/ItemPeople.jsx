@@ -13,22 +13,6 @@ export default function ItemPerson(
   };
 
   const AddPerson = () => {
-    // const updatePayList = [...payList, selectedPerson];
-
-    // const prevPerPersonCost = (updatePayList.length === 1)
-    //   ? 0 : Number(item.price) / (updatePayList.length - 1);
-    // const updatePersonCost = Number(item.price) / updatePayList.length;
-    // console.log(`previous cost per person ${prevPerPersonCost}`);
-
-    // const updatedPeopleList = [...peopleList];
-    // updatedPeopleList.forEach((person) => {
-    //   if (updatePayList.includes(person.name)) {
-    //     if (payList.includes(person.name)) {
-    //       person.amount -= prevPerPersonCost;
-    //     }
-    //     person.amount += updatePersonCost;
-    //   }
-    // });
     console.log(peopleList);
     const updatedPayList = [...payList, selectedPerson];
     // Calculate new per person cost for this item based on updated pay list
@@ -36,6 +20,7 @@ export default function ItemPerson(
       ? 0 : Number(item.price) / (updatedPayList.length - 1);
     const updatedPerPersonCost = Number(item.price) / updatedPayList.length;
     console.log(`updated per person cost ${updatedPerPersonCost}`);
+    console.log(typeof updatedPerPersonCost);
     console.log(`previus person cost ${prevPerPersonCost}`);
     console.log(peopleList);
     // Create new people list to trigger re-render when we update people list in parent component
